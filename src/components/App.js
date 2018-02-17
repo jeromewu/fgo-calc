@@ -1,24 +1,22 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 import styled from 'styled-components';
+import media from '../utils/media';
 import Background from './Background';
 import logo from '../assets/images/logo.png';
 
 const LogoImage = styled.img`
   width: 90%;
-
-  @media only screen and (min-width: 768px) {
-    width: 551px;
-  }
+  max-width: 551px;
 `;
 
 const Buttons = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
-  @media only screen and (min-width: 768px) {
-    flex-direction: row;
-  }
+  ${media.phone`
+    flex-direction: column;
+  `}
 `;
 
 const App = () => (
