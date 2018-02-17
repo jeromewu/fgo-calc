@@ -1,0 +1,31 @@
+# Runtime for specific language, needed for bundling our app
+language: node_js
+# Specify node.js version
+node_js:
+  - 8
+
+# Script to be executed before deployment
+script:
+  - npm test
+  - npm run build
+
+# Deployment begins after all script are done
+deploy:
+  # provider for github pages
+  provider: pages
+  # everything inside this folder will be commit to the branch
+  local-dir: build
+  # whether to do the cleanup before deployment, most of the time you need to skip
+  skip-cleanup: true
+  # branch you would like to push
+  target-branch: gh-pages
+  # token from github, check https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/ for details
+  github-token: $GITHUB_TOKEN
+  # on which branch you want to execute the deployment
+  on:
+    branch: master
+
+# whitelist branches for CI to execute
+branches:
+  only:
+    - master
