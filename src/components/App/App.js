@@ -1,23 +1,9 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import styled from 'styled-components';
-import media from '../utils/media';
-import Background from './Background';
-import logo from '../assets/images/logo.png';
-
-const LogoImage = styled.img`
-  width: 90%;
-  max-width: 551px;
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  ${media.phone`
-    flex-direction: column;
-  `}
-`;
+import logo from 'assets/images/logo.png';
+import Background from 'components/Background';
+import LogoImage from './LogoImage';
+import Buttons from './Buttons';
 
 const App = () => (
   <Background>
