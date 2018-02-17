@@ -1,25 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'semantic-ui-react';
+import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import logo from 'assets/images/logo.png';
+import { ConnectedRouter } from 'react-router-redux';
+import history from 'utils/history';
+import Home from 'routes/Home';
+import TC from 'routes/TC';
 import Background from 'components/Background';
-import LogoImage from './LogoImage';
-import Buttons from './Buttons';
 
 const App = ({ store }) => (
   <Provider store={store}>
-    <Background>
-      <LogoImage src={logo} alt="logo" />
-      <h3>Event Calculator</h3>
-      <h4>Select server:</h4>
-      <Buttons>
-        <Button basic content="Japan" />
-        <Button basic content="Simplified Chinese" />
-        <Button basic content="Traditional Chinese" />
-        <Button basic content="English" />
-      </Buttons>
-    </Background>
+    <ConnectedRouter history={history}>
+      <Background>
+        <Route exact path="/" component={Home} />
+        <Route path="/tc" component={TC} />
+      </Background>
+    </ConnectedRouter>
   </Provider>
 );
 

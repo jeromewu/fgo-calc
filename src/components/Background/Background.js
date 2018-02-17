@@ -5,10 +5,7 @@ const toColor = 'rgba(0, 0, 0, 0.02)';
 
 export default styled.div`
   display: flex;
-  flex-direction: column;
   flex: 1;
-  justify-content: center;
-  align-items: center;
   background-color: ${fromColor};
   background-image: linear-gradient(
     45deg,
