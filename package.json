@@ -12,5 +12,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeromewu/fgo-calc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeromewu/fgo-calc/issues"
+  },
+  "author": "Jerome Wu",
+  "license": "MIT",
+  "homepage": "https://jeromewu.github.io/fgo-calc"
 }
