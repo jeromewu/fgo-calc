@@ -1,3 +1,5 @@
 import createHistory from 'history/createBrowserHistory';
 
-export default createHistory();
+const basename = process.env.NODE_ENV === 'development' ? '/' : '/fgo-calc';
+
+export default createHistory({ basename });
