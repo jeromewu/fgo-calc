@@ -2,9 +2,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
-import store from './store';
+import createStore from './store';
 import registerServiceWorker from './utils/registerServiceWorker';
+import setup from './setup';
 import './styles/index.css';
+
+const store = createStore();
+
+setup();
 
 const render = () => {
   const App = require('./components/App').default;
@@ -12,7 +17,7 @@ const render = () => {
 };
 
 if (process.env.NODE_ENV === 'development') {
-  module.hot.accept(() => {
+  module.hot.accept('./components/App', () => {
     setImmediate(() => render());
   });
 }
