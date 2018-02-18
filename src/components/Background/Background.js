@@ -5,7 +5,7 @@ const toColor = 'rgba(0, 0, 0, 0.02)';
 
 export default styled.div`
   flex: 1;
-  overflow: auto;
+  overflowX: auto;
   background-color: ${fromColor};
   background-image: linear-gradient(
     45deg,
