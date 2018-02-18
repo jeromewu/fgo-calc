@@ -1,16 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Header from 'components/Header';
+import CurrentEventPanel from 'components/CurrentEventPanel';
+import goWest from 'assets/images/tc/events/go-west.png';
+import { BannerImage } from './styles';
 
-const TCView = ({ style }) => (
-  <div style={style} />
-);
-
-TCView.propTypes = {
-  style: PropTypes.object,
-};
-
-TCView.defaultProps = {
-  style: {},
-};
+const TCView = () => ([
+  <Header key="header" />,
+  <CurrentEventPanel key="current">
+    <h1>Current Event:</h1>
+    <BannerImage src={goWest} alt="go-west" />
+  </CurrentEventPanel>,
+]);
 
 export default TCView;

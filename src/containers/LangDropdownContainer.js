@@ -3,7 +3,10 @@ import { updateIntl } from 'react-intl-redux';
 import locales from 'assets/locales';
 import LangDropdown from 'components/LangDropdown';
 
-export const mapStateToProps = () => ({
+export const mapStateToProps = ({
+  router: { location: { pathname } },
+}) => ({
+  inverted: pathname !== '/',
 });
 
 export const mapDispatchToProps = dispatch => ({

@@ -12,9 +12,12 @@ const langs = [
   },
 ];
 
-const LangDropdown = ({ onItemClick }) => (
+const LangDropdown = ({ onItemClick, inverted }) => (
   <Dropdown
-    style={styles.container}
+    style={{
+      ...styles.container,
+      color: inverted ? 'white' : 'black',
+    }}
     text="Language"
   >
     <Dropdown.Menu>
@@ -33,10 +36,12 @@ const LangDropdown = ({ onItemClick }) => (
 
 LangDropdown.propTypes = {
   onItemClick: PropTypes.func,
+  inverted: PropTypes.bool,
 };
 
 LangDropdown.defaultProps = {
   onItemClick: () => () => {},
+  inverted: false,
 };
 
 export default LangDropdown;
