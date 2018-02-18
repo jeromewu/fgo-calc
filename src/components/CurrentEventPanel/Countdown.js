@@ -52,7 +52,7 @@ export default class Countdown extends PureComponent {
         <span> <FormattedMessage id={minutes > 1 ? 'minutes' : 'minute'} /></span>
         <span> {seconds} </span>
         <span><FormattedMessage id={seconds > 1 ? 'seconds' : 'second'} /></span>
-        <span>{` (${ap} AP) `}</span>
+        <span>{` = ${ap} AP`}</span>
       </span>
     );
   }
