@@ -9,6 +9,8 @@
   "TOC.current.time.left": "Time Left",
   "TOC.next.event": "Next Event",
   "TOC.past.event": "Past Event",
+  "Event.shop": "Event Shop",
+  "Event.traded": "Traded",
   "day": "Day",
   "days": "Days",
   "hour": "Hour",
@@ -73,5 +75,6 @@
   "Asc.secret.gem.of.cavalry": "Secret Gem of Cavalry",
   "Asc.secret.gem.of.spells": "Secret Gem of Spells",
   "Asc.secret.gem.of.killing": "Secret Gem of Killing",
-  "Asc.secret.gem.of.madness": "Secret Gem of Madness"
+  "Asc.secret.gem.of.madness": "Secret Gem of Madness",
+  "CE.divine.princess.of.the.storm": "Divine Princess of the Storm"
 }

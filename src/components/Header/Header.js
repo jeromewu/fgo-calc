@@ -5,6 +5,7 @@ const HeaderContainer = styled.div`
   display: flex;
   height: 64px;
   background-color: #20232a;
+  align-self: stretch;
 `;
 
 const Title = styled.div`

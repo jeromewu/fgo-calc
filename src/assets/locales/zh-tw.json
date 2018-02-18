@@ -9,6 +9,8 @@
   "TOC.current.time.left": "剩餘時間",
   "TOC.next.event": "近期活動",
   "TOC.past.event": "過去活動",
+  "Event.shop": "活動兌換物",
+  "Event.traded": "已兌換數目",
   "day": "天",
   "days": "天",
   "hour": "小時",
@@ -73,5 +75,6 @@
   "Asc.secret.gem.of.cavalry": "騎之秘石",
   "Asc.secret.gem.of.spells": "術之秘石",
   "Asc.secret.gem.of.killing": "殺之秘石",
-  "Asc.secret.gem.of.madness": "狂之秘石"
+  "Asc.secret.gem.of.madness": "狂之秘石",
+  "CE.divine.princess.of.the.storm": "風雲仙姬"
 }
