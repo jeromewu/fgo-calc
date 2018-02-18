@@ -1,6 +1,6 @@
 export default {
   container: {
-    position: 'absolute',
+    position: 'fixed',
     top: 8,
     right: 32,
   },

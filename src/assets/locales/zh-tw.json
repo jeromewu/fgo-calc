@@ -4,5 +4,8 @@
   "Home.server.jp": "日服",
   "Home.server.sc": "簡中服 (B站)",
   "Home.server.tc": "繁中服",
-  "Home.server.en": "美服"
+  "Home.server.en": "美服",
+  "TOC.current.event": "進行中活動",
+  "TOC.next.event": "近期活動",
+  "TOC.past.event": "過去活動"
 }

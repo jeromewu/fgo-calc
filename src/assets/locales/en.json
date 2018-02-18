@@ -4,5 +4,8 @@
   "Home.server.jp": "Japanese",
   "Home.server.sc": "Chinese Simplified",
   "Home.server.tc": "Chinese Traditional",
-  "Home.server.en": "English"
+  "Home.server.en": "English",
+  "TOC.current.event": "Current Event",
+  "TOC.next.event": "Next Event",
+  "TOC.past.event": "Past Event"
 }

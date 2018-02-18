@@ -10,23 +10,23 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 320px;
-  background-color: #282c34;
-  color: white;
+  background-color: transparent;
+  color: black;
 `;
 
-const CurrentEventPanel = ({ event: { name, banner } }) => (
+const NextEventPanel = ({ event: { name, banner } }) => (
   <Container>
-    <h1><FormattedMessage id="TOC.current.event" /></h1>
+    <h1><FormattedMessage id="TOC.next.event" /></h1>
     <BannerImage src={banner} alt={name} />
   </Container>
 );
 
-CurrentEventPanel.propTypes = {
+NextEventPanel.propTypes = {
   event: PropTypes.object,
 };
 
-CurrentEventPanel.defaultProps = {
+NextEventPanel.defaultProps = {
   event: {},
 };
 
-export default CurrentEventPanel;
+export default NextEventPanel;

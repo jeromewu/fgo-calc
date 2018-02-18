@@ -4,9 +4,8 @@ const fromColor = 'rgba(0, 0, 0, 0)';
 const toColor = 'rgba(0, 0, 0, 0.02)';
 
 export default styled.div`
-  display: flex;
-  flex-direction: column;
   flex: 1;
+  overflow: auto;
   background-color: ${fromColor};
   background-image: linear-gradient(
     45deg,
