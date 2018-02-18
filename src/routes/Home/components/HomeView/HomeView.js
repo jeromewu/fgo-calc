@@ -7,16 +7,16 @@ import { LogoImage, RDiv, CenteredDiv } from './styles';
 
 const getServers = () => ([
   {
-    key: 'jp', label: 'Japan', path: '/jp', disabled: true,
+    key: 'jp', label: <FormattedMessage id="Home.server.jp" />, path: '/jp', disabled: true,
   },
   {
-    key: 'sc', label: 'Simplified Chinese', path: '/sc', disabled: true,
+    key: 'sc', label: <FormattedMessage id="Home.server.sc" />, path: '/sc', disabled: true,
   },
   {
-    key: 'tc', label: 'Traditional Chinese', path: '/tc', disabled: false,
+    key: 'tc', label: <FormattedMessage id="Home.server.tc" />, path: '/tc', disabled: false,
   },
   {
-    key: 'en', label: 'English', path: '/en', disabled: true,
+    key: 'en', label: <FormattedMessage id="Home.server.en" />, path: '/en', disabled: true,
   },
 ]);
 
@@ -24,7 +24,7 @@ const HomeView = ({ style, onRoute }) => (
   <CenteredDiv style={style}>
     <LogoImage src={logo} alt="logo" />
     <h3><FormattedMessage id="Home.title" /></h3>
-    <h4>Select server:</h4>
+    <h4><FormattedMessage id="Home.server.label" /></h4>
     <RDiv>
       {
         getServers().map(({

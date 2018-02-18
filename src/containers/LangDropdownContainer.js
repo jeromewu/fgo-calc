@@ -7,7 +7,7 @@ export const mapStateToProps = () => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  onItemClick: key => () => dispatch(updateIntl({ locale: key.split('-')[0], messages: locales[key] })),
+  onItemClick: key => () => dispatch(updateIntl({ locale: key, messages: locales[key] })),
 });
 
 export default connect(

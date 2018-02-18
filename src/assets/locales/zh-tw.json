@@ -1,3 +1,8 @@
 {
-  "Home.title": "活動計算機"
+  "Home.title": "活動計算機",
+  "Home.server.label": "選擇伺服器",
+  "Home.server.jp": "日服",
+  "Home.server.sc": "簡中服 (B站)",
+  "Home.server.tc": "繁中服",
+  "Home.server.en": "美服"
 }

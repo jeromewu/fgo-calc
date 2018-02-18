@@ -10,12 +10,14 @@ import history from 'utils/history';
 import en from 'assets/locales/en.json';
 import reducers from './reducers';
 
-export default (initialState = {
+const defaultInitialState = {
   intl: {
     locale: 'en',
     messages: en,
   },
-}) => {
+};
+
+export default (initialState = {}) => {
   const middlewares = [routerMiddleware(history)];
   let composeEnhancers = compose;
 
@@ -27,7 +29,7 @@ export default (initialState = {
 
   const store = createStore(
     reducers,
-    initialState,
+    { ...defaultInitialState, ...initialState },
     composeEnhancers(applyMiddleware(...middlewares)),
   );
 

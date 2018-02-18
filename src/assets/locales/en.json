@@ -1,3 +1,8 @@
 {
-  "Home.title": "Event Calculator"
+  "Home.title": "Event Calculator",
+  "Home.server.label": "Select a server",
+  "Home.server.jp": "Japanese",
+  "Home.server.sc": "Chinese Simplified",
+  "Home.server.tc": "Chinese Traditional",
+  "Home.server.en": "English"
 }
