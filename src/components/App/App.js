@@ -7,6 +7,8 @@ import { ConnectedRouter } from 'react-router-redux';
 import history from 'utils/history';
 import Home from 'routes/Home';
 import TC from 'routes/TC';
+import tcEventData from 'constants/tc-events';
+import * as Events from 'events/index';
 import Background from 'components/Background';
 import LangDropdown from 'containers/LangDropdownContainer';
 
@@ -17,7 +19,14 @@ const App = ({ store }) => (
         <Background>
           <LangDropdown />
           <Route exact path="/" component={Home} />
-          <Route path="/tc" component={TC} />
+          <Route exact path="/tc" component={TC} />
+          <Route
+            path="/tc/:eventName"
+            render={({ match: { params: { eventName } } }) => {
+              const Event = Events[eventName];
+              return <Event event={tcEventData[eventName]} />;
+            }}
+          />
         </Background>
       </ConnectedRouter>
     </IntlProvider>

@@ -17,9 +17,11 @@ const Container = styled.div`
 `;
 
 const CurrentEventPanel = ({
+  server,
   event: {
     name, banner, start, end,
   },
+  onImageClick,
 }) => (
   <Container>
     <h2><FormattedMessage id="TOC.current.event" /></h2>
@@ -32,16 +34,20 @@ const CurrentEventPanel = ({
         <Countdown end={end} />
       </span>
     </div>
-    <BannerImage src={banner} alt={name} />
+    <BannerImage src={banner} alt={name} onClick={onImageClick(server, name)} />
   </Container>
 );
 
 CurrentEventPanel.propTypes = {
+  server: PropTypes.string,
   event: PropTypes.object,
+  onImageClick: PropTypes.func,
 };
 
 CurrentEventPanel.defaultProps = {
+  server: '',
   event: {},
+  onImageClick: () => {},
 };
 
 export default CurrentEventPanel;
