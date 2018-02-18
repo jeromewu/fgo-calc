@@ -6,6 +6,15 @@
   "Home.server.tc": "繁中服",
   "Home.server.en": "美服",
   "TOC.current.event": "進行中活動",
+  "TOC.current.time.left": "剩餘時間",
   "TOC.next.event": "近期活動",
-  "TOC.past.event": "過去活動"
+  "TOC.past.event": "過去活動",
+  "day": "天",
+  "days": "天",
+  "hour": "小時",
+  "hours": "小時",
+  "minute": "分鐘",
+  "minutes": "分鐘",
+  "second": "秒",
+  "seconds": "秒"
 }

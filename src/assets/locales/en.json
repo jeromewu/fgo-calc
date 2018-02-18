@@ -6,6 +6,15 @@
   "Home.server.tc": "Chinese Traditional",
   "Home.server.en": "English",
   "TOC.current.event": "Current Event",
+  "TOC.current.time.left": "Time Left",
   "TOC.next.event": "Next Event",
-  "TOC.past.event": "Past Event"
+  "TOC.past.event": "Past Event",
+  "day": "Day",
+  "days": "Days",
+  "hour": "Hour",
+  "hours": "Hours",
+  "minute": "Minute",
+  "minutes": "Minutes",
+  "second": "Second",
+  "seconds": "Seconds"
 }

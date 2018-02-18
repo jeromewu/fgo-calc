@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const NextEventPanel = ({ event: { name, banner } }) => (
   <Container>
-    <h1><FormattedMessage id="TOC.next.event" /></h1>
+    <h2><FormattedMessage id="TOC.next.event" /></h2>
     <BannerImage src={banner} alt={name} />
   </Container>
 );
