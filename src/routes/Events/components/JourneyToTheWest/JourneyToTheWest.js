@@ -5,17 +5,21 @@ import Countdown from 'components/Countdown';
 import banner from 'assets/images/banner';
 import Root from '../common/Root';
 import EventShop from '../common/EventShop';
+import DropGrid from '../common/DropGrid';
+import TopButton from '../common/TopButton';
 
 const JourneyToTheWest = ({
   server,
   event: {
-    start, end, shop,
+    start, end, shop, drops,
   },
 }) => (
   <Root>
     <BannerImage key="banner" src={banner[server].JourneyToTheWest} alt="JourneyToTheWest" />
     <Countdown start={start} end={end} />
+    <DropGrid drops={drops} />
     <EventShop items={shop} />
+    <TopButton />
   </Root>
 );
 

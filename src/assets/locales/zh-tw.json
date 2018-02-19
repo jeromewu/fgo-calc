@@ -11,6 +11,9 @@
   "TOC.past.event": "過去活動",
   "TOC.no.event": "沒有進行中的活動 :(",
   "Event.shop": "商店兌換物",
+  "Event.drops": "活動掉落物",
+  "Event.owned": "已有",
+  "Event.bonus": "加成",
   "Event.traded": "已兌換數目",
   "day": "天",
   "days": "天",
@@ -77,5 +80,7 @@
   "Asc.secret.gem.of.spells": "術之秘石",
   "Asc.secret.gem.of.killing": "殺之秘石",
   "Asc.secret.gem.of.madness": "狂之秘石",
-  "CE.divine.princess.of.the.storm": "風雲仙姬"
+  "CE.divine.princess.of.the.storm": "風雲仙姬",
+  "Drop.big.lotus.flower": "大蓮華",
+  "Drop.orb.of.deebs": "功德玉"
 }
