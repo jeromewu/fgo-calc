@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import LangDropdown from 'containers/LangDropdown';
 
 const HeaderContainer = styled.div`
   display: flex;
-  height: 64px;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
   background-color: #20232a;
-  align-self: stretch;
+  padding: 0px 16px 0px 16px;
 `;
 
 const Title = styled.div`
@@ -13,8 +16,6 @@ const Title = styled.div`
   flex: 1;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 8px;
-  margin-right: 16px;
   font-weight: bold;
   font-size: 24px;
   color: white;
@@ -23,6 +24,7 @@ const Title = styled.div`
 const Header = () => (
   <HeaderContainer>
     <Title>FGO Calc</Title>
+    <LangDropdown />
   </HeaderContainer>
 );
 

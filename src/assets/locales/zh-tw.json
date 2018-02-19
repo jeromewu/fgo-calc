@@ -9,6 +9,7 @@
   "TOC.current.time.left": "剩餘時間",
   "TOC.next.event": "近期活動",
   "TOC.past.event": "過去活動",
+  "TOC.no.event": "沒有進行中的活動 :(",
   "Event.shop": "活動兌換物",
   "Event.traded": "已兌換數目",
   "day": "天",

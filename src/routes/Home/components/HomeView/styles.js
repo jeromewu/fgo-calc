@@ -16,7 +16,7 @@ export const LogoImage = styled.img`
 `;
 
 export const CenteredDiv = styled.div`
-  height: 100%;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;

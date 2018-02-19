@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "check-types": "^7.3.0",
     "history": "^4.7.2",
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",

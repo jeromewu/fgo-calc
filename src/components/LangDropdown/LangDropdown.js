@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Dropdown } from 'semantic-ui-react';
-import styles from './styles';
 
 const langs = [
   {
@@ -12,12 +12,12 @@ const langs = [
   },
 ];
 
-const LangDropdown = ({ onItemClick, inverted }) => (
-  <Dropdown
-    style={{
-      ...styles.container,
-      color: inverted ? 'white' : 'black',
-    }}
+const WhiteDropdown = styled(Dropdown)`
+  color: white;
+`;
+
+const LangDropdown = ({ onItemClick }) => (
+  <WhiteDropdown
     text="Language"
   >
     <Dropdown.Menu>
@@ -31,17 +31,15 @@ const LangDropdown = ({ onItemClick, inverted }) => (
         ))
       }
     </Dropdown.Menu>
-  </Dropdown>
+  </WhiteDropdown>
 );
 
 LangDropdown.propTypes = {
   onItemClick: PropTypes.func,
-  inverted: PropTypes.bool,
 };
 
 LangDropdown.defaultProps = {
   onItemClick: () => () => {},
-  inverted: false,
 };
 
 export default LangDropdown;

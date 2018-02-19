@@ -2,33 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { IntlProvider } from 'react-intl-redux';
 import { ConnectedRouter } from 'react-router-redux';
+import IntlProvider from 'containers/IntlProvider';
 import history from 'utils/history';
 import Home from 'routes/Home';
-import TC from 'routes/TC';
-import tcEventData from 'constants/tc-events';
-import * as Events from 'events/index';
+import Overview from 'routes/Overview';
+import * as Events from 'routes/Events';
 import Background from 'components/Background';
-import LangDropdown from 'containers/LangDropdownContainer';
+import Header from 'components/Header';
+import Main from 'components/Main';
 
 const App = ({ store }) => (
   <Provider store={store}>
     <IntlProvider>
-      <ConnectedRouter history={history}>
-        <Background>
-          <LangDropdown />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/tc" component={TC} />
-          <Route
-            path="/tc/:eventName"
-            render={({ match: { params: { eventName } } }) => {
-              const Event = Events[eventName];
-              return <Event event={tcEventData[eventName]} />;
-            }}
-          />
-        </Background>
-      </ConnectedRouter>
+      <Background>
+        <Header />
+        <ConnectedRouter history={history}>
+          <Main>
+            <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/:server"
+              component={Overview}
+            />
+            <Route
+              path="/:server/:eventName"
+              render={(args) => {
+                const Event = Events[args.match.params.eventName];
+                return <Event {...args} />;
+              }}
+            />
+          </Main>
+        </ConnectedRouter>
+      </Background>
     </IntlProvider>
   </Provider>
 );
