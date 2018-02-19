@@ -15,6 +15,7 @@ const JourneyToTheWest = ({
   },
 }) => (
   <Root>
+    <section id="top" />
     <BannerImage key="banner" src={banner[server].JourneyToTheWest} alt="JourneyToTheWest" />
     <Countdown start={start} end={end} />
     <DropGrid drops={drops} />
