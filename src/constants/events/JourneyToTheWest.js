@@ -3,10 +3,54 @@ import genShopItem from 'utils/genShopItem';
 export default {
   name: 'JourneyToTheWest',
   drops: [
-    { id: 'Drop.big.lotus.flower' },
-    { id: 'Drop.orb.of.deebs' },
+    {
+      id: 'Drop.big.lotus.flower',
+      type: 'ADD',
+      min: 0,
+      max: 18,
+    },
+    {
+      id: 'Drop.orb.of.deebs',
+      type: 'MUL',
+      min: 1,
+      max: 2,
+      step: 0.2,
+    },
   ],
   quests: [
+    {
+      id: 'Qst.nakara.realm',
+      drops: [
+        {
+          id: 'Drop.big.lotus.flower',
+          stats: [
+            { num: 2, prob: 8.478 },
+            { num: 3, prob: 11.12 },
+            { num: 4, prob: 4 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'Drop.orb.of.deebs',
+        num: 140,
+      },
+    },
+    {
+      id: 'Qst.tathagata',
+      drops: [
+        {
+          id: 'Drop.orb.of.deebs',
+          stats: [
+            { num: 2, prob: 5 },
+            { num: 4, prob: 4 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
   ],
   shop: [
     genShopItem(
@@ -48,8 +92,8 @@ export default {
     genShopItem(
       'Asc.mana.prism',
       'Drop.big.lotus.flower',
-      2,
       500,
+      2,
     ),
   ],
 };
