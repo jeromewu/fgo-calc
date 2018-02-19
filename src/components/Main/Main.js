@@ -2,5 +2,6 @@ import styled from 'styled-components';
 
 export default styled.div`
   flex: 1;
-  overflow-x: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
