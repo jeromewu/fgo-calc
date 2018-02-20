@@ -122,11 +122,11 @@ export default {
     const bonusOrb = data[`${orb}/bonus`] || 1;
     const qstTathagata = quests.find(({ id }) => id === tathagata);
     const dropOrb =
-      qstTathagata.drops
+      Math.floor(qstTathagata.drops
         .find(({ id }) => id === orb).stats
         .reduce((sum, { num, prob }) => (
           Math.floor(sum + (num * prob))
-        ), 0) * bonusOrb;
+        ), 0) * bonusOrb);
     const repeatTathagata = Math.ceil(totalOrb / dropOrb);
 
     const ap = repeatTathagata * qstTathagata.cost.num;
