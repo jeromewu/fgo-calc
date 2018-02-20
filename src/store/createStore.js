@@ -8,13 +8,13 @@ import {
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import history from 'utils/history';
-import en from 'assets/locales/en.json';
+import zhTW from 'assets/locales/zh-tw.json';
 import reducers from './reducers';
 
 const defaultInitialState = {
   intl: {
-    locale: 'en',
-    messages: en,
+    locale: 'zh-tw',
+    messages: zhTW,
   },
 };
 
