@@ -16,6 +16,12 @@
   "Event.bonus": "Bonus",
   "Event.progress.report": "Progress Report",
   "Event.traded": "Traded",
+  "Event.remaining": "To clear the shop, you need",
+  "Event.farm": "You need to farm",
+  "Event.times": "Times",
+  "Event.ap.cost": "AP Cost (1 Golden Apple = 135 AP)",
+  "Qst.nakara.realm": "Nakara realm",
+  "Qst.tathagata": "Tathagata",
   "day": "Day",
   "days": "Days",
   "hour": "Hour",
@@ -83,5 +89,7 @@
   "Asc.secret.gem.of.madness": "Secret Gem of Madness",
   "CE.divine.princess.of.the.storm": "Divine Princess of the Storm",
   "Drop.big.lotus.flower": "Big Lotus Flower",
-  "Drop.orb.of.deebs": "Orb of Deebs"
+  "Drop.orb.of.deebs": "Orb of Deebs",
+  "Item.saint.quartz": "Saint Quartz",
+  "Item.golden.apple": "Golden Apple"
 }

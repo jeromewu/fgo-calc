@@ -8,6 +8,7 @@ import history from 'utils/history';
 import Home from 'routes/Home';
 import Overview from 'routes/Overview';
 import * as Events from 'routes/Events';
+import { initEventData } from 'routes/Events/modules/events';
 import Background from 'components/Background';
 import Header from 'components/Header';
 import Main from 'components/Main';
@@ -29,6 +30,7 @@ const App = ({ store }) => (
               path="/:server/:eventName"
               render={(args) => {
                 const Event = Events[args.match.params.eventName];
+                store.dispatch(initEventData(args.location.pathname));
                 return <Event {...args} />;
               }}
             />

@@ -1,19 +1,37 @@
 import React from 'react';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Card, Image, Input } from 'semantic-ui-react';
+import { Card, Image, Input, Label, Dropdown } from 'semantic-ui-react';
 import images from 'assets/images';
+
+const genOptions = {
+  ADD: (min, max, step) => Array(((max - min) / step) + 1).fill(0).map((_, idx) => ({
+    key: idx,
+    text: min + (idx * step),
+    value: min + (idx * step),
+  })),
+  MUL: (min, max, step) => Array(((max - min) / step) + 1).fill(0).map((_, idx) => ({
+    key: idx,
+    text: `${Math.round((min + ((idx * step) - 1)) * 100)} %`,
+    value: min + (idx * step),
+  })),
+};
+
 
 const DropGrid = ({
   drops,
+  data,
   intl,
+  onQuantityUpdate,
 }) => ([
   <h2 key="title">
     <FormattedMessage id="Event.drops" />
   </h2>,
   <Card.Group key="cards" centered>
     {
-      drops.map(({ id }) => (
+      drops.map(({
+        id, type, min, max, step,
+      }) => (
         <Card key={id}>
           <Card.Content>
             <Image floated="right" size="mini" src={images[id]} alt={id} />
@@ -25,16 +43,23 @@ const DropGrid = ({
             <Input
               fluid
               label={intl.formatMessage({ id: 'Event.owned' })}
+              value={data[`${id}/owned`] || '0'}
               inputMode="numeric"
               pattern="[0-9]*"
+              onChange={onQuantityUpdate(`${id}/owned`)}
             />
           </Card.Content>
           <Card.Content extra>
-            <Input
-              fluid
-              label={intl.formatMessage({ id: 'Event.bonus' })}
-              inputMode="numeric"
-              pattern="[0-9]*"
+            <Label size="large">
+              {intl.formatMessage({ id: 'Event.bonus' })}
+            </Label>
+            <Dropdown
+              placeholder="0"
+              value={data[`${id}/bonus`] || '0'}
+              onChange={onQuantityUpdate(`${id}/bonus`, type === 'ADD')}
+              options={genOptions[type](min, max, step)}
+              selection
+              scrolling
             />
           </Card.Content>
         </Card>
@@ -45,11 +70,15 @@ const DropGrid = ({
 
 DropGrid.propTypes = {
   drops: PropTypes.array,
+  data: PropTypes.object,
   intl: intlShape.isRequired,
+  onQuantityUpdate: PropTypes.func,
 };
 
 DropGrid.defaultProps = {
   drops: [],
+  data: {},
+  onQuantityUpdate: () => {},
 };
 
 export default injectIntl(DropGrid);

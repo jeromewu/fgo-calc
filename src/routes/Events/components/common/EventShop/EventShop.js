@@ -8,6 +8,8 @@ import ImageLabel from '../ImageLabel';
 
 const EventShop = ({
   items,
+  onQuantityUpdate,
+  data,
 }) => ([
   <h2 key="title">
     <FormattedMessage id="Event.shop" />
@@ -25,7 +27,7 @@ const EventShop = ({
             <Card.Description>
               <ImageLabel
                 id={id}
-                text={`${limit} / ${limit}`}
+                text={`${limit - (data[id] || 0)} / ${limit}`}
               />
               <ImageLabel
                 id={drop}
@@ -37,13 +39,15 @@ const EventShop = ({
             extra
             style={{ paddingBottom: 32 }}
           >
-            <p><FormattedMessage id="Event.traded" /></p>
+            <p><FormattedMessage id="Event.traded" /><span>{`: ${data[id] || 0}`}</span></p>
             <Slider
+              value={data[id] || 0}
               min={0}
               max={limit}
               marks={{ [limit]: limit }}
               handleStyle={{ borderColor: 'grey' }}
               trackStyle={{ backgroundColor: 'grey' }}
+              onChange={onQuantityUpdate(id)}
             />
           </Card.Content>
         </Card>
@@ -54,10 +58,14 @@ const EventShop = ({
 
 EventShop.propTypes = {
   items: PropTypes.array,
+  data: PropTypes.object,
+  onQuantityUpdate: PropTypes.func,
 };
 
 EventShop.defaultProps = {
   items: [],
+  data: {},
+  onQuantityUpdate: () => {},
 };
 
 export default EventShop;

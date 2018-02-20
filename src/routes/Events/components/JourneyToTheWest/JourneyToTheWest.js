@@ -5,28 +5,30 @@ import BannerImage from 'components/BannerImage';
 import Countdown from 'components/Countdown';
 import banner from 'assets/images/banner';
 import Root from '../common/Root';
-import EventShop from '../common/EventShop';
-import DropGrid from '../common/DropGrid';
-import TopButton from '../common/TopButton';
+import EventShop from '../../containers/EventShop';
+import DropGrid from '../../containers/DropGrid';
+import NavButton from '../common/NavButton';
 import Report from '../common/Report';
 
 const JourneyToTheWest = ({
   server,
   event,
+  data,
 }) => {
   const {
-    start, end, drops, shop,
+    start, end, drops, shop, getRequired,
   } = event;
   return (
     <Root>
-      <section id="top" />
+      <section id="report" />
       <BannerImage key="banner" src={banner[server].JourneyToTheWest} alt="JourneyToTheWest" />
       <Countdown start={start} end={end} />
-      <Report event={event} />
+      <Report required={getRequired(event, data)} end={end} />
+      <section id="options" />
       <Divider horizontal section>◇◇◇</Divider>
       <DropGrid drops={drops} />
       <EventShop items={shop} />
-      <TopButton />
+      <NavButton />
     </Root>
   );
 };
@@ -34,11 +36,13 @@ const JourneyToTheWest = ({
 JourneyToTheWest.propTypes = {
   server: PropTypes.string,
   event: PropTypes.object,
+  data: PropTypes.object,
 };
 
 JourneyToTheWest.defaultProps = {
   server: '',
   event: {},
+  data: {},
 };
 
 export default JourneyToTheWest;

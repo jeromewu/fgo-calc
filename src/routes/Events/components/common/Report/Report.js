@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Statistic, Image } from 'semantic-ui-react';
-import check from 'check-types';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import images from 'assets/images';
+import moment from 'moment';
 import ImageLabel from '../ImageLabel';
 
 const Center = styled.div`
@@ -13,107 +13,131 @@ const Center = styled.div`
   align-items: center;
 `;
 
-const Report = ({
-  event: {
-    drops, shop, quests,
-  },
-}) => ([
-  <h2 key="title">
-    <FormattedMessage id="Event.progress.report" />
-  </h2>,
-  <h3 key="remain-title">
-    To clear the shop, you still need
-  </h3>,
-  <Statistic.Group key="remain" size="small" horizontal>
-    {
-      drops.map(({ id }) => (
-        <Statistic
-          key={id}
-        >
-          <Statistic.Value>
-            {
-              shop
-                .filter(({ drop }) => drop === id)
-                .reduce((sum, { limit, cost }) => sum + (limit * cost), 0)
-            }
-          </Statistic.Value>
+const MAX_AP = 135;
+
+export default class Report extends PureComponent {
+  static propTypes = {
+    interval: PropTypes.number,
+    end: PropTypes.number,
+    required: PropTypes.object,
+  }
+
+  static defaultProps = {
+    interval: 3000,
+    end: Date.now(),
+    required: {},
+  }
+
+  state = {
+    timerId: -1,
+    now: Date.now(),
+  }
+
+  componentWillMount() {
+    this.setState({
+      timerId: setInterval(() => {
+        this.setState({ now: Date.now() });
+      }, this.props.interval),
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.timerId);
+  }
+
+  render() {
+    const {
+      end,
+      required: {
+        drops, quests, ap,
+      },
+    } = this.props;
+    const { now } = this.state;
+
+    const apCountdown = Math.floor((end - now) / (1000 * 60 * 5));
+    const nApple = Math.ceil((ap - apCountdown) / MAX_AP);
+
+    return ([
+      <h2 key="title">
+        <FormattedMessage id="Event.progress.report" />
+      </h2>,
+      <h3 key="remain-title">
+        <FormattedMessage id="Event.remaining" />
+      </h3>,
+      <Statistic.Group key="remain" size="small" horizontal>
+        {
+          drops.map(({ id, total }) => (
+            <Statistic
+              key={id}
+            >
+              <Statistic.Value>
+                {Math.max(total, 0)}
+              </Statistic.Value>
+              <Statistic.Label>
+                <Center>
+                  <Image src={images[id]} alt={id} />
+                </Center>
+              </Statistic.Label>
+            </Statistic>
+          ))
+        }
+      </Statistic.Group>,
+      <h3 key="quests-title">
+        <FormattedMessage id="Event.farm" />
+      </h3>,
+      <Card.Group key="quests" centered>
+        {
+          quests.map(({ id: qid, drops: qdrops, repeat }) => (
+            <Card key={qid}>
+              <Card.Content>
+                <Card.Header>
+                  <FormattedMessage id={qid} />
+                </Card.Header>
+                <h3>
+                  {`${Math.max(repeat, 0)} `}
+                  <FormattedMessage id="Event.times" />
+                </h3>
+              </Card.Content>
+              <Card.Content extra>
+                {
+                  qdrops.map(({ id: did, num }) => (
+                    <ImageLabel
+                      key={did}
+                      id={did}
+                      text={Math.max(num, 0)}
+                    />
+                  ))
+                }
+              </Card.Content>
+            </Card>
+          ))
+        }
+      </Card.Group>,
+      <h3 key="ap-title">
+        <FormattedMessage id="Event.ap.cost" />
+      </h3>,
+      <div key="ap">
+        <Statistic size="small">
+          <Statistic.Value>{Math.max(ap, 0)}</Statistic.Value>
+          <Statistic.Label>AP</Statistic.Label>
+        </Statistic>
+        <Statistic size="tiny">
+          <Statistic.Value>=</Statistic.Value>
+        </Statistic>
+        <Statistic size="tiny">
+          <Statistic.Value>{Math.max(apCountdown, 0)}</Statistic.Value>
+          <Statistic.Label>{`AP (~ ${moment(end).format('MM/DD')})`}</Statistic.Label>
+        </Statistic>
+        <Statistic size="tiny">
+          <Statistic.Value>+</Statistic.Value>
+        </Statistic>
+        <Statistic size="tiny" horizontal>
+          <Statistic.Value>{Math.max(nApple, 0)}</Statistic.Value>
           <Statistic.Label>
-            <Center>
-              <Image src={images[id]} alt={id} />
-            </Center>
+            <Image src={images['Item.golden.apple']} alt="ga" size="mini" />
           </Statistic.Label>
         </Statistic>
-      ))
-    }
-  </Statistic.Group>,
-  <h3 key="quests-title">
-    You need to farm
-  </h3>,
-  <Card.Group key="quests" centered>
-    {
-      quests.map(({ id: qid, drops: qdrops }) => (
-        <Card key={qid}>
-          <Card.Content>
-            <Card.Header>
-              {qid}
-            </Card.Header>
-          </Card.Content>
-          <Card.Content extra>
-            {
-              drops.map(({ id: did }) => (
-                <ImageLabel
-                  key={did}
-                  id={did}
-                  text={(() => {
-                    const drop = qdrops.find(({ id: qdid }) => did === qdid);
-                    if (check.undefined(drop)) return 0;
-                    return parseInt(
-                      drop.stats.reduce((sum, { num, prob }) => sum + (num * prob), 0),
-                      10,
-                    );
-                  })()}
-                />
-              ))
-            }
-          </Card.Content>
-          <Card.Content extra>
-            1000 times
-          </Card.Content>
-        </Card>
-      ))
-    }
-  </Card.Group>,
-  <h3 key="ap-title">
-    AP Cost
-  </h3>,
-  <div key="ap">
-    <Statistic size="small">
-      <Statistic.Value>7000</Statistic.Value>
-      <Statistic.Label>AP</Statistic.Label>
-    </Statistic>
-    <Statistic size="tiny">
-      <Statistic.Value>=</Statistic.Value>
-    </Statistic>
-    <Statistic size="tiny">
-      <Statistic.Value>2000</Statistic.Value>
-      <Statistic.Label>AP (~ 02/26)</Statistic.Label>
-    </Statistic>
-    <Statistic size="tiny">
-      <Statistic.Value>+</Statistic.Value>
-    </Statistic>
-    <Statistic size="tiny">
-      <Statistic.Value>100</Statistic.Value>
-      <Statistic.Label>Apple / Saint</Statistic.Label>
-    </Statistic>
-  </div>,
-]);
-
-Report.propTypes = {
-  event: PropTypes.object,
-};
-
-Report.defaultProps = {
-  event: {},
-};
-
-export default Report;
+      </div>,
+    ]);
+  }
+}

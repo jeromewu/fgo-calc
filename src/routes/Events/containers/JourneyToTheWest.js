@@ -4,7 +4,10 @@ import * as events from 'constants/events';
 import JourneyToTheWest from '../components/JourneyToTheWest';
 
 export const mapStateToProps = (
-  state,
+  {
+    events: data,
+    router: { location: { pathname } },
+  },
   { match: { params: { server, eventName } } },
 ) => ({
   server,
@@ -12,6 +15,7 @@ export const mapStateToProps = (
     ...calendar[server].find(({ name }) => name === eventName),
     ...events[eventName],
   },
+  data: data[pathname],
 });
 
 export const mapDispatchToProps = () => ({

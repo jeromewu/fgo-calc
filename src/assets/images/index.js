@@ -7,6 +7,8 @@ import apl from './asc/phoenix.plume.png';
 import aotc from './asc/octuplet.twin.crystals.png';
 import acl from './asc/crystallized.lore.png';
 import amp from './asc/mana.prism.png';
+import isq from './item/saint.quartz.png';
+import iga from './item/golden.apple.png';
 
 export default {
   'Asc.spirit.root': asr,
@@ -18,4 +20,6 @@ export default {
   'CE.divine.princess.of.the.storm': cdpots,
   'Drop.big.lotus.flower': dblf,
   'Drop.orb.of.deebs': dood,
+  'Item.saint.quartz': isq,
+  'Item.golden.apple': iga,
 };

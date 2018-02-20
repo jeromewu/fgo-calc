@@ -6,6 +6,7 @@ import {
   compose,
 } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
+import thunk from 'redux-thunk';
 import history from 'utils/history';
 import en from 'assets/locales/en.json';
 import reducers from './reducers';
@@ -18,7 +19,7 @@ const defaultInitialState = {
 };
 
 export default (initialState = {}) => {
-  const middlewares = [routerMiddleware(history)];
+  const middlewares = [thunk, routerMiddleware(history)];
   let composeEnhancers = compose;
 
   if (process.env.NODE_ENV === 'development') {
