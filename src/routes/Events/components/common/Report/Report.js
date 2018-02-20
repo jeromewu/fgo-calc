@@ -124,14 +124,14 @@ export default class Report extends PureComponent {
         <Statistic size="tiny">
           <Statistic.Value>=</Statistic.Value>
         </Statistic>
-        <Statistic size="tiny">
+        <Statistic size="mini">
           <Statistic.Value>{Math.max(apCountdown, 0)}</Statistic.Value>
           <Statistic.Label>{`AP (~ ${moment(end).format('MM/DD')})`}</Statistic.Label>
         </Statistic>
         <Statistic size="tiny">
           <Statistic.Value>+</Statistic.Value>
         </Statistic>
-        <Statistic size="tiny">
+        <Statistic size="mini">
           <Statistic.Value>{Math.max(nApple, 0)}</Statistic.Value>
           <Statistic.Label>
             <FormattedMessage id="Item.golden.apple" />
