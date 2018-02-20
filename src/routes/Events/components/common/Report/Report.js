@@ -117,7 +117,7 @@ export default class Report extends PureComponent {
         <FormattedMessage id="Event.ap.cost" />
       </h3>,
       <div key="ap">
-        <Statistic size="small">
+        <Statistic size="tiny">
           <Statistic.Value>{Math.max(ap, 0)}</Statistic.Value>
           <Statistic.Label>AP</Statistic.Label>
         </Statistic>
@@ -131,10 +131,10 @@ export default class Report extends PureComponent {
         <Statistic size="tiny">
           <Statistic.Value>+</Statistic.Value>
         </Statistic>
-        <Statistic size="tiny" horizontal>
+        <Statistic size="tiny">
           <Statistic.Value>{Math.max(nApple, 0)}</Statistic.Value>
           <Statistic.Label>
-            <Image src={images['Item.golden.apple']} alt="ga" size="mini" />
+            <FormattedMessage id="Item.golden.apple" />
           </Statistic.Label>
         </Statistic>
       </div>,
