@@ -58,7 +58,7 @@ export default {
   ],
   shop: [
     genShopItem(
-      'CE.divine.princess.of.the.storm',
+      'Ce.divine.princess.of.the.storm',
       'Drop.big.lotus.flower',
       4,
       300,
