@@ -10,9 +10,8 @@ export const mapStateToProps = ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  onQuantityUpdate: (key, isInt = true) => (evt, { value }) => {
-    const numValue = isInt ? parseInt(value, 10) : parseFloat(value);
-    dispatch(setEventData({ key, value: numValue }));
+  onQuantityUpdate: key => (evt, { value }) => {
+    dispatch(setEventData({ key, value }));
   },
 });
 

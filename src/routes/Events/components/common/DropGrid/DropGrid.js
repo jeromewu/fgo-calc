@@ -43,19 +43,19 @@ const DropGrid = ({
             <Input
               fluid
               label={intl.formatMessage({ id: 'Event.owned' })}
-              value={data[`${id}/owned`] || '0'}
-              inputMode="numeric"
-              pattern="[0-9]*"
+              value={data[`${id}/owned`]}
               onChange={onQuantityUpdate(`${id}/owned`)}
             />
+            <Label pointing>
+              e.g. 100, 50+50, 100 + (5 * 20), ...
+            </Label>
           </Card.Content>
           <Card.Content extra>
             <Label size="large">
               {intl.formatMessage({ id: 'Event.bonus' })}
             </Label>
             <Dropdown
-              placeholder="0"
-              value={data[`${id}/bonus`] || '0'}
+              value={data[`${id}/bonus`]}
               onChange={onQuantityUpdate(`${id}/bonus`, type === 'ADD')}
               options={genOptions[type](min, max, step)}
               selection

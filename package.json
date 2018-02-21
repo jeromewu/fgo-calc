@@ -5,6 +5,7 @@
   "dependencies": {
     "check-types": "^7.3.0",
     "history": "^4.7.2",
+    "mathjs": "^3.20.2",
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
     "prop-types": "^15.6.0",

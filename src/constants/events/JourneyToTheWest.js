@@ -1,4 +1,7 @@
+import React from 'react';
 import genShopItem from 'utils/genShopItem';
+import meval from 'utils/meval';
+import { FormattedMessage } from 'react-intl';
 
 export default {
   name: 'JourneyToTheWest',
@@ -97,6 +100,14 @@ export default {
       2,
     ),
   ],
+  message: {
+    header: <FormattedMessage id="Event.notice" />,
+    content: (
+      <p>
+        <FormattedMessage id="Event.journey.to.the.west.bonus.message" />
+      </p>
+    ),
+  },
   getRequired: ({ shop, quests }, data) => {
     const lotus = 'Drop.big.lotus.flower';
     const orb = 'Drop.orb.of.deebs';
@@ -107,8 +118,8 @@ export default {
       .filter(({ drop }) => drop === lotus)
       .reduce((sum, { id, limit, cost }) => (
         sum + ((limit - (data[id] || 0)) * cost)
-      ), 0) - (data[`${lotus}/owned`] || 0);
-    const bonusLotus = data[`${lotus}/bonus`] || 0;
+      ), 0) - meval(data[`${lotus}/owned`], 0);
+    const bonusLotus = meval(data[`${lotus}/bonus`], 0);
     const qstNakara = quests.find(({ id }) => id === nakara);
     const dropLotus =
       qstNakara.drops
@@ -118,8 +129,8 @@ export default {
         ), 0);
     const repeatNakara = Math.ceil(totalLotus / dropLotus);
 
-    const totalOrb = (repeatNakara * qstNakara.cost.num) - (data[`${orb}/owned`] || 0);
-    const bonusOrb = data[`${orb}/bonus`] || 1;
+    const totalOrb = (repeatNakara * qstNakara.cost.num) - (meval(data[`${orb}/owned`], 0));
+    const bonusOrb = meval(data[`${orb}/bonus`], 1);
     const qstTathagata = quests.find(({ id }) => id === tathagata);
     const dropOrb =
       Math.floor(qstTathagata.drops
