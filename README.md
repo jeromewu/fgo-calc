@@ -6,5 +6,3 @@ Fate Grand Order Calculator
 This calcualtor helps you to calculate the overall resource left in events.
 
 Link: https://jeromewu.github.io/fgo-calc/
-
-License: MIT
