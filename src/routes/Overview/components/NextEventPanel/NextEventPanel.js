@@ -18,21 +18,28 @@ const Container = styled.div`
 const NextEventPanel = ({
   server,
   event: { name },
+  onImageClick,
 }) => (
   <Container>
     <h2><FormattedMessage id="TOC.next.event" /></h2>
-    <BannerImage src={banner[server][name]} alt={name} />
+    <BannerImage
+      src={banner[server][name]}
+      alt={name}
+      onClick={onImageClick(server, name)}
+    />
   </Container>
 );
 
 NextEventPanel.propTypes = {
   server: PropTypes.string,
   event: PropTypes.object,
+  onImageClick: PropTypes.func,
 };
 
 NextEventPanel.defaultProps = {
   server: PropTypes.string,
   event: {},
+  onImageClick: () => () => {},
 };
 
 export default NextEventPanel;

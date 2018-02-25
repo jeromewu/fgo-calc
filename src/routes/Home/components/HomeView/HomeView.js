@@ -16,7 +16,7 @@ const getServers = () => ([
     key: 'tc', label: <FormattedMessage id="Home.server.tc" />, path: '/tc', disabled: false,
   },
   {
-    key: 'en', label: <FormattedMessage id="Home.server.en" />, path: '/en', disabled: true,
+    key: 'en', label: <FormattedMessage id="Home.server.en" />, path: '/en', disabled: false,
   },
 ]);
 
