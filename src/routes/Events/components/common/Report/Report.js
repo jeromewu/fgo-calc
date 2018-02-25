@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import images from 'assets/images';
 import moment from 'moment';
+import shortid from 'shortid';
 import ImageLabel from '../ImageLabel';
 
 const Center = styled.div`
@@ -68,7 +69,7 @@ export default class Report extends PureComponent {
         {
           drops.map(({ id, total }) => (
             <Statistic
-              key={id}
+              key={shortid.generate()}
             >
               <Statistic.Value>
                 {Math.max(total, 0)}
@@ -88,7 +89,7 @@ export default class Report extends PureComponent {
       <Card.Group key="quests" centered>
         {
           quests.map(({ id: qid, drops: qdrops, repeat }) => (
-            <Card key={qid}>
+            <Card key={shortid.generate()}>
               <Card.Content>
                 <Card.Header>
                   <FormattedMessage id={qid} />
@@ -102,7 +103,7 @@ export default class Report extends PureComponent {
                 {
                   qdrops.map(({ id: did, num }) => (
                     <ImageLabel
-                      key={did}
+                      key={shortid.generate()}
                       id={did}
                       text={Math.max(num, 0)}
                     />

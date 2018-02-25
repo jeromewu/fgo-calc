@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Card } from 'semantic-ui-react';
 import Slider from 'rc-slider';
+import shortid from 'shortid';
 import 'rc-slider/assets/index.css';
 import ImageLabel from '../ImageLabel';
 
@@ -19,7 +20,7 @@ const EventShop = ({
       items.map(({
         id, drop, cost, limit,
       }) => (
-        <Card key={id}>
+        <Card key={shortid.generate()}>
           <Card.Content>
             <Card.Header>
               <FormattedMessage id={id} />

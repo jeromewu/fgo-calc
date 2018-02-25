@@ -1,4 +1,10 @@
 import genShopItem from 'utils/genShopItem';
+import {
+  getTotal,
+  getTypeAddDrop,
+  getRepeat,
+  getAP,
+} from 'utils/calc';
 
 export default {
   name: 'DaVinciAndThe7CounterfeitHeroicSpirits',
@@ -39,7 +45,88 @@ export default {
       step: 1,
     },
   ],
-  quests: [],
+  quests: [
+    {
+      id: 'Qst.gallery.louvre',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 3, prob: 4.9 },
+            { num: 10, prob: 0.5 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.gallery.louvre',
+      drops: [
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 3, prob: 4.9 },
+            { num: 10, prob: 0.5 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.gallery.hermitage',
+      drops: [
+        {
+          id: 'Drop.mona.lisa.fake',
+          stats: [
+            { num: 4, prob: 4.7 },
+            { num: 6, prob: 2.865 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.gallery.vatican',
+      drops: [
+        {
+          id: 'Drop.self.portrait',
+          stats: [
+            { num: 4, prob: 4.75 },
+            { num: 5, prob: 2.805 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.gallery.uffizi',
+      drops: [
+        {
+          id: 'Drop.vitruvian.man.fake',
+          stats: [
+            { num: 4, prob: 5.8 },
+            { num: 5, prob: 2.805 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+  ],
   shop: [
     genShopItem(
       'Event.real.box',
@@ -270,9 +357,41 @@ export default {
       10,
     ),
   ],
-  getRequired: () => ({
-    drops: [],
-    quests: [],
-    ap: 0,
-  }),
+  getRequired: ({ shop, quests }, data) => {
+    const ids = [
+      'Drop.real.manuscript',
+      'Drop.fake.manuscript',
+      'Drop.mona.lisa.fake',
+      'Drop.self.portrait',
+      'Drop.vitruvian.man.fake',
+    ];
+
+    const drops = ids.map(id => ({
+      id,
+      total: getTotal({ did: id, shop, data }),
+    }));
+
+    const rQuests = quests.map(({ id, drops: ds }) => {
+      const did = ds[0].id;
+      const { total } = drops.find(({ id: i }) => i === did);
+      const drop = getTypeAddDrop({ did, quests, data });
+      return {
+        id,
+        drops: [
+          { id: did, num: drop },
+        ],
+        repeat: getRepeat({ total, drop }),
+      };
+    });
+
+    const ap = rQuests.reduce((sum, { id, repeat }) => (
+      sum + getAP({ qid: id, quests, repeat })
+    ), 0);
+
+    return {
+      drops,
+      quests: rQuests,
+      ap,
+    };
+  },
 };
