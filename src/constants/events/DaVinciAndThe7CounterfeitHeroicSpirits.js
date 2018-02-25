@@ -2,7 +2,29 @@ import genShopItem from 'utils/genShopItem';
 
 export default {
   name: 'DaVinciAndThe7CounterfeitHeroicSpirits',
-  drops: [],
+  drops: [
+    {
+      id: 'Drop.mona.lisa.fake',
+      type: 'ADD',
+      min: 0,
+      max: 12,
+      step: 1,
+    },
+    {
+      id: 'Drop.self.portrait',
+      type: 'ADD',
+      min: 0,
+      max: 12,
+      step: 1,
+    },
+    {
+      id: 'Drop.vitruvian.man.fake',
+      type: 'ADD',
+      min: 0,
+      max: 12,
+      step: 1,
+    },
+  ],
   quests: [],
   shop: [
     genShopItem(
@@ -100,6 +122,126 @@ export default {
       'Drop.self.portrait',
       20,
       20,
+    ),
+    genShopItem(
+      'Asc.magic.gem.of.swords',
+      'Drop.self.portrait',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.magic.gem.of.bows',
+      'Drop.self.portrait',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.magic.gem.of.lances',
+      'Drop.self.portrait',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.magic.gem.of.cavalry',
+      'Drop.self.portrait',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.magic.gem.of.spells',
+      'Drop.self.portrait',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.magic.gem.of.killing',
+      'Drop.self.portrait',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.magic.gem.of.madness',
+      'Drop.self.portrait',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Ce.school.of.chaldea',
+      'Drop.vitruvian.man.fake',
+      1,
+      200,
+    ),
+    genShopItem(
+      'Asc.warhorses.immature.horn',
+      'Drop.vitruvian.man.fake',
+      20,
+      40,
+    ),
+    genShopItem(
+      'Asc.ghost.lantern',
+      'Drop.vitruvian.man.fake',
+      20,
+      20,
+    ),
+    genShopItem(
+      'Asc.homunculus.baby',
+      'Drop.vitruvian.man.fake',
+      20,
+      20,
+    ),
+    genShopItem(
+      'Asc.shinning.gem.of.swords',
+      'Drop.vitruvian.man.fake',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.shinning.gem.of.bows',
+      'Drop.vitruvian.man.fake',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.shinning.gem.of.lances',
+      'Drop.vitruvian.man.fake',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.shinning.gem.of.cavalry',
+      'Drop.vitruvian.man.fake',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.shinning.gem.of.spells',
+      'Drop.vitruvian.man.fake',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.shinning.gem.of.killing',
+      'Drop.vitruvian.man.fake',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.shinning.gem.of.madness',
+      'Drop.vitruvian.man.fake',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.fou.kun.of.the.star',
+      'Drop.vitruvian.man.fake',
+      20,
+      10,
+    ),
+    genShopItem(
+      'Asc.fou.kun.of.the.sun',
+      'Drop.vitruvian.man.fake',
+      20,
+      10,
     ),
   ],
   getRequired: () => ({
