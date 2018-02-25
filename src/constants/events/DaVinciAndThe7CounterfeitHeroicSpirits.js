@@ -4,6 +4,20 @@ export default {
   name: 'DaVinciAndThe7CounterfeitHeroicSpirits',
   drops: [
     {
+      id: 'Drop.real.manuscript',
+      type: 'ADD',
+      min: 0,
+      max: 24,
+      step: 1,
+    },
+    {
+      id: 'Drop.fake.manuscript',
+      type: 'ADD',
+      min: 0,
+      max: 24,
+      step: 1,
+    },
+    {
       id: 'Drop.mona.lisa.fake',
       type: 'ADD',
       min: 0,
@@ -27,6 +41,18 @@ export default {
   ],
   quests: [],
   shop: [
+    genShopItem(
+      'Event.real.box',
+      'Drop.real.manuscript',
+      6,
+      600,
+    ),
+    genShopItem(
+      'Event.fake.box',
+      'Drop.fake.manuscript',
+      6,
+      600,
+    ),
     genShopItem(
       'Ce.school.of.chaldea',
       'Drop.mona.lisa.fake',

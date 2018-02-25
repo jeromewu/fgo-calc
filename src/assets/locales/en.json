@@ -22,6 +22,8 @@
   "Event.notice": "Notice",
   "Event.journey.to.the.west.bonus.message": "For The Peach Blossom Garden Part 7 to Part 14 with 100% bonus, you will get 1,100 Orb of Deebs",
   "Event.ap.cost": "AP Cost (1 Golden Apple = 135 AP)",
+  "Event.real.box": "Real Box",
+  "Event.fake.box": "Fake Box",
   "Qst.nakara.realm": "Nakara realm",
   "Qst.tathagata": "Tathagata",
   "day": "Day",
@@ -97,6 +99,8 @@
   "Drop.orb.of.deebs": "Orb of Deebs",
   "Drop.mona.lisa.fake": "Mona Lisa (fake)",
   "Drop.self.portrait": "Self-portrait",
+  "Drop.real.manuscript": "Real Manuscript",
+  "Drop.fake.manuscript": "Fake Manuscript",
   "Drop.vitruvian.man.fake": "Vitruvian Man (fake)",
   "Item.saint.quartz": "Saint Quartz",
   "Item.golden.apple": "Golden Apple"
