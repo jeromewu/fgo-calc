@@ -11,6 +11,8 @@
   "TOC.past.event": "過去活動",
   "TOC.no.event": "沒有進行中的活動 :(",
   "Event.shop": "商店兌換物",
+  "Event.exclude.gem": "不包含輝石、魔石及秘石",
+  "Event.exclude.piece.monument": "不包含銀棋及金棋",
   "Event.drops": "活動掉落物",
   "Event.owned": "已有",
   "Event.bonus": "加成",

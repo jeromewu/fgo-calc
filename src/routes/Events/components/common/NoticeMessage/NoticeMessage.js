@@ -1,14 +1,19 @@
 import React from 'react';
+import check from 'check-types';
 import PropTypes from 'prop-types';
 import { Message } from 'semantic-ui-react';
 
 const NoticeMessage = ({
-  message,
+  message: { header, content },
 }) => (
-  <Message info>
-    <Message.Header>{message.header}</Message.Header>
-    {message.content}
-  </Message>
+  check.emptyString(header) || check.undefined(header)
+    ? null
+    : (
+      <Message info>
+        <Message.Header>{header}</Message.Header>
+        {content}
+      </Message>
+    )
 );
 
 NoticeMessage.propTypes = {

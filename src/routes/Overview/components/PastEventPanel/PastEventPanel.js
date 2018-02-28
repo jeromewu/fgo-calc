@@ -15,6 +15,17 @@ const Container = styled.div`
   padding-top: 80px;
 `;
 
+const BannerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const PaddingBannerImage = styled(BannerImage)`
+  padding: 16px;
+`;
+
 const PastEventPanel = ({
   server,
   events,
@@ -22,16 +33,18 @@ const PastEventPanel = ({
 }) => (
   <Container>
     <h2><FormattedMessage id="TOC.past.event" /></h2>
-    {
-      events.map(({ name }) => (
-        <BannerImage
-          key={name}
-          src={banner[server][name]}
-          alt={name}
-          onClick={onImageClick(server, name)}
-        />
-      ))
-    }
+    <BannerContainer>
+      {
+        events.map(({ name }) => (
+          <PaddingBannerImage
+            key={name}
+            src={banner[server][name]}
+            alt={name}
+            onClick={onImageClick(server, name)}
+          />
+        ))
+      }
+    </BannerContainer>
   </Container>
 );
 

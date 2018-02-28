@@ -17,7 +17,6 @@ const genOptions = {
   })),
 };
 
-
 const DropGrid = ({
   drops,
   data,
@@ -60,6 +59,7 @@ const DropGrid = ({
               options={genOptions[type](min, max, step)}
               selection
               scrolling
+              compact
             />
           </Card.Content>
         </Card>

@@ -37,8 +37,9 @@ export default class Countdown extends PureComponent {
   render() {
     const { now } = this.state;
     const { start, end } = this.props;
-    const ap = parseInt((end - now) / 1000 / 60 / 5, 10);
-    const duration = moment.duration(end - now);
+    const diff = end > now ? end - now : 0;
+    const ap = parseInt((diff) / 1000 / 60 / 5, 10);
+    const duration = moment.duration(diff);
     const days = duration.days();
     const hours = duration.hours();
     const minutes = duration.minutes();

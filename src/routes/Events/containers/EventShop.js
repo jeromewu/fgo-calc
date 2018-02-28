@@ -13,6 +13,9 @@ export const mapDispatchToProps = dispatch => ({
   onQuantityUpdate: key => value => (
     dispatch(setEventData({ key, value }))
   ),
+  onFilter: key => (evt, { checked }) => (
+    dispatch(setEventData({ key, value: checked }))
+  ),
 });
 
 export default connect(

@@ -1,7 +1,9 @@
 import meval from './meval';
+import filterItems from './filterItems';
 
 export const getTotal = ({ did, shop, data }) => (
   shop
+    .filter(filterItems(data))
     .filter(({ drop }) => drop === did)
     .reduce((sum, { id, limit, cost }) => (
       sum + ((limit - (data[id] || 0)) * cost)

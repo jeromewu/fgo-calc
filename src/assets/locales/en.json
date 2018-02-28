@@ -11,6 +11,8 @@
   "TOC.past.event": "Past Event",
   "TOC.no.event": "No Event :(",
   "Event.shop": "Event Shop",
+  "Event.exclude.gem": "Exclude Gem",
+  "Event.exclude.piece.monument": "Exclude Piece & Monument",
   "Event.drops": "Event Drops",
   "Event.owned": "Owned",
   "Event.bonus": "Bonus",

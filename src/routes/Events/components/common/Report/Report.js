@@ -14,6 +14,12 @@ const Center = styled.div`
   align-items: center;
 `;
 
+const StatisticGroup = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
 const MAX_AP = 135;
 
 export default class Report extends PureComponent {
@@ -65,11 +71,12 @@ export default class Report extends PureComponent {
       <h3 key="remain-title">
         <FormattedMessage id="Event.remaining" />
       </h3>,
-      <Statistic.Group key="remain" size="small" horizontal>
+      <StatisticGroup key="remain">
         {
           drops.map(({ id, total }) => (
             <Statistic
               key={shortid.generate()}
+              size="tiny"
             >
               <Statistic.Value>
                 {Math.max(total, 0)}
@@ -82,7 +89,7 @@ export default class Report extends PureComponent {
             </Statistic>
           ))
         }
-      </Statistic.Group>,
+      </StatisticGroup>,
       <h3 key="quests-title">
         <FormattedMessage id="Event.farm" />
       </h3>,
