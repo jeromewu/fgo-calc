@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Button } from 'semantic-ui-react';
 import LangDropdown from 'containers/LangDropdown';
 
 const HeaderContainer = styled.div`
@@ -24,7 +25,16 @@ const Title = styled.div`
 const Header = () => (
   <HeaderContainer>
     <Title>FGO Calc</Title>
-    <LangDropdown />
+    <div>
+      <LangDropdown />
+      <Button
+        icon="question circle"
+        color="black"
+        onClick={() => {
+          window.open('https://github.com/jeromewu/fgo-calc/issues', '_blank');
+        }}
+      />
+    </div>
   </HeaderContainer>
 );
 
