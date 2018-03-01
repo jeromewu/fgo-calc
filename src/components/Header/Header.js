@@ -12,24 +12,28 @@ const HeaderContainer = styled.div`
   padding: 0px 16px 0px 16px;
 `;
 
-const Title = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: flex-start;
-  align-items: center;
-  font-weight: bold;
-  font-size: 24px;
-  color: white;
-`;
+const blackBg = {
+  backgroundColor: '#20232a',
+};
 
 const Header = () => (
   <HeaderContainer>
-    <Title>FGO Calc</Title>
+    <Button
+      secondary
+      size="big"
+      style={blackBg}
+      onClick={() => {
+        window.open('https://jeromewu.github.io/fgo-calc/', '_self');
+      }}
+    >
+      FGO Calc
+    </Button>
     <div>
       <LangDropdown />
       <Button
+        secondary
         icon="question circle"
-        color="black"
+        style={blackBg}
         onClick={() => {
           window.open('https://github.com/jeromewu/fgo-calc/issues', '_blank');
         }}
