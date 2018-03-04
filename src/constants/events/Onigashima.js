@@ -34,13 +34,6 @@ export default {
       max: 12,
       step: 1,
     },
-    {
-      id: 'Drop.damage.point',
-      type: 'ADD',
-      min: 0,
-      max: 0,
-      step: 1,
-    },
   ],
   quests: [
     {
