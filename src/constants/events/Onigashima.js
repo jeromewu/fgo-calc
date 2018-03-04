@@ -112,8 +112,8 @@ export default {
     genShopItem(
       'Drop.damage.point',
       'Drop.damage.point',
-      1,
       200,
+      1,
     ),
     genShopItem(
       'Servant.sakata.kintoki.rider',
