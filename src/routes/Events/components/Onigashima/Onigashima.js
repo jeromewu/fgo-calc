@@ -8,7 +8,6 @@ import Root from '../common/Root';
 import EventShop from '../../containers/EventShop';
 import DropGrid from '../../containers/DropGrid';
 import NavButton from '../common/NavButton';
-import NoticeMessage from '../common/NoticeMessage';
 import Report from '../common/Report';
 
 const Onigashima = ({
@@ -17,7 +16,7 @@ const Onigashima = ({
   data,
 }) => {
   const {
-    start, end, drops, shop, getRequired, message, bp,
+    start, end, drops, shop, getRequired, bp,
   } = event;
   return (
     <Root>
@@ -28,7 +27,6 @@ const Onigashima = ({
         required={getRequired(event, data)}
         end={end}
       />
-      <NoticeMessage message={message} />
       <section id="options" />
       <Divider horizontal section>◇◇◇</Divider>
       <DropGrid drops={drops} />

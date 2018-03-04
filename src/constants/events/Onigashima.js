@@ -1,5 +1,3 @@
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import {
   genShopItem,
   getTotal,
@@ -295,14 +293,6 @@ export default {
       20,
     ),
   ],
-  message: {
-    header: <FormattedMessage id="Event.notice" />,
-    content: (
-      <p>
-        <FormattedMessage id="Event.onigashima.warning.message" />
-      </p>
-    ),
-  },
   getRequired: ({ shop, quests }, data) => {
     const ids = [
       'Drop.demonic.crest.hamper',
