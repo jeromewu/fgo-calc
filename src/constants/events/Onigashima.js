@@ -42,25 +42,9 @@ export default {
         {
           id: 'Drop.demonic.crest.hamper',
           stats: [
-            { num: 2, prob: 4.5 },
+            { num: 2, prob: 7.88 },
             { num: 3, prob: 4 },
             { num: 4, prob: 4 },
-          ],
-        },
-      ],
-      cost: {
-        id: 'AP',
-        num: 40,
-      },
-    },
-    {
-      id: 'Qst.slope.to.the.afterlife.rashaka',
-      drops: [
-        {
-          id: 'Drop.textile.of.brocade',
-          stats: [
-            { num: 2, prob: 7.5 },
-            { num: 4, prob: 3 },
           ],
         },
       ],
@@ -73,10 +57,26 @@ export default {
       id: 'Qst.tower.of.monkey.rashaka',
       drops: [
         {
+          id: 'Drop.textile.of.brocade',
+          stats: [
+            { num: 2, prob: 10.5 },
+            { num: 4, prob: 5.4 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.slope.to.the.afterlife.rashaka',
+      drops: [
+        {
           id: 'Drop.coral.of.dragon.king.palace',
           stats: [
-            { num: 2, prob: 7.5 },
-            { num: 4, prob: 2 },
+            { num: 2, prob: 10.5 },
+            { num: 4, prob: 5.4 },
           ],
         },
       ],
