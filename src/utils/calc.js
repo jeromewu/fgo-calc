@@ -1,6 +1,10 @@
 import meval from './meval';
 import filterItems from './filterItems';
 
+export const genShopItem = (id, drop, limit, cost) => ({
+  id, drop, limit, cost,
+});
+
 export const getTotal = ({ did, shop, data }) => (
   shop
     .filter(filterItems(data))
@@ -24,6 +28,11 @@ export const getRepeat = ({ total, drop }) => (
 );
 
 export const getAP = ({ qid, quests, repeat }) => (
+  repeat * quests
+    .find(({ id }) => id === qid).cost.num
+);
+
+export const getBP = ({ qid, quests, repeat }) => (
   repeat * quests
     .find(({ id }) => id === qid).cost.num
 );

@@ -1,10 +1,11 @@
 import React from 'react';
-import genShopItem from 'utils/genShopItem';
 import meval from 'utils/meval';
+import { genShopItem } from 'utils/calc';
 import { FormattedMessage } from 'react-intl';
 
 export default {
   name: 'JourneyToTheWest',
+  bp: false,
   drops: [
     {
       id: 'Drop.big.lotus.flower',

@@ -1,5 +1,5 @@
-import genShopItem from 'utils/genShopItem';
 import {
+  genShopItem,
   getTotal,
   getTypeAddDrop,
   getRepeat,
@@ -8,6 +8,7 @@ import {
 
 export default {
   name: 'DaVinciAndThe7CounterfeitHeroicSpirits',
+  bp: false,
   drops: [
     {
       id: 'Drop.real.manuscript',

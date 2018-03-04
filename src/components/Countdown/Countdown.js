@@ -8,12 +8,14 @@ export default class Countdown extends PureComponent {
     interval: 3000,
     start: Date.now(),
     end: Date.now(),
+    bp: false,
   }
 
   static propTypes = {
     interval: PropTypes.number,
     start: PropTypes.number,
     end: PropTypes.number,
+    bp: PropTypes.bool,
   }
 
 
@@ -36,9 +38,10 @@ export default class Countdown extends PureComponent {
 
   render() {
     const { now } = this.state;
-    const { start, end } = this.props;
+    const { start, end, bp: hasBP } = this.props;
     const diff = end > now ? end - now : 0;
-    const ap = parseInt((diff) / 1000 / 60 / 5, 10);
+    const ap = Math.floor((diff) / 1000 / 60 / 5);
+    const bp = Math.floor((diff) / 1000 / 60 / 60);
     const duration = moment.duration(diff);
     const days = duration.days();
     const hours = duration.hours();
@@ -60,7 +63,7 @@ export default class Countdown extends PureComponent {
           <span> <FormattedMessage id={minutes > 1 ? 'minutes' : 'minute'} /></span>
           <span> {seconds} </span>
           <span><FormattedMessage id={seconds > 1 ? 'seconds' : 'second'} /></span>
-          <span>{` = ${ap} AP`}</span>
+          <span>{` = ${ap} AP${hasBP ? ` & ${bp} BP` : ''}`}</span>
         </span>
       </div>,
     ];

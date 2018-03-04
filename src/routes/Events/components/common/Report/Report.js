@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import check from 'check-types';
 import { Card, Statistic, Image } from 'semantic-ui-react';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
@@ -21,6 +22,7 @@ const StatisticGroup = styled.div`
 `;
 
 const MAX_AP = 135;
+const MAX_BP = 8;
 
 export default class Report extends PureComponent {
   static propTypes = {
@@ -56,13 +58,16 @@ export default class Report extends PureComponent {
     const {
       end,
       required: {
-        drops, quests, ap,
+        drops, quests, ap, bp,
       },
     } = this.props;
     const { now } = this.state;
 
     const apCountdown = Math.floor((end - now) / (1000 * 60 * 5));
     const nApple = Math.ceil((ap - apCountdown) / MAX_AP);
+
+    const bpCountdown = Math.floor((end - now) / (1000 * 60 * 60));
+    const nSQ = Math.ceil((bp - bpCountdown) / MAX_BP);
 
     return ([
       <h2 key="title">
@@ -146,6 +151,32 @@ export default class Report extends PureComponent {
           </Statistic.Label>
         </Statistic>
       </div>,
+      check.undefined(bp)
+        ? null
+        : (
+          <div key="bp">
+            <Statistic size="tiny">
+              <Statistic.Value>{Math.max(bp, 0)}</Statistic.Value>
+              <Statistic.Label>BP</Statistic.Label>
+            </Statistic>
+            <Statistic size="tiny">
+              <Statistic.Value>=</Statistic.Value>
+            </Statistic>
+            <Statistic size="mini">
+              <Statistic.Value>{Math.max(bpCountdown, 0)}</Statistic.Value>
+              <Statistic.Label>{`AP (~ ${moment(end).format('MM/DD')})`}</Statistic.Label>
+            </Statistic>
+            <Statistic size="tiny">
+              <Statistic.Value>+</Statistic.Value>
+            </Statistic>
+            <Statistic size="mini">
+              <Statistic.Value>{Math.max(nSQ, 0)}</Statistic.Value>
+              <Statistic.Label>
+                <FormattedMessage id="Item.saint.quartz" />
+              </Statistic.Label>
+            </Statistic>
+          </div>
+        ),
     ]);
   }
 }

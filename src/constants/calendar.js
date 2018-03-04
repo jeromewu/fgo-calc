@@ -4,8 +4,8 @@ export default {
   tc: [
     {
       name: 'Onigashima',
-      start: (new Date('2018-03-22T16:00:00+0800')).getTime(),
-      end: (new Date('2018-04-05T12:59:00+0800')).getTime(),
+      start: (new Date('2018-03-08T16:00:00+0800')).getTime(),
+      end: (new Date('2018-03-22T12:59:00+0800')).getTime(),
     },
     {
       name: 'JourneyToTheWest',

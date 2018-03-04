@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const imageRoot = '../src/assets/images';
-const types = ['asc', 'drop', 'ce', 'item'];
+const types = ['asc', 'drop', 'ce', 'item', 'servant'];
 
 const toTitleCase = str => (
   str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())

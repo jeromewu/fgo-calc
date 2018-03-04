@@ -6,6 +6,7 @@ import check from 'check-types';
 import banner from 'assets/images/banner';
 import BannerImage from 'components/BannerImage';
 import Countdown from 'components/Countdown';
+import * as events from 'constants/events';
 
 const Container = styled.div`
   display: flex;
@@ -35,6 +36,7 @@ const CurrentEventPanel = ({
             key="countdown"
             start={start}
             end={end}
+            bp={events[name].bp}
           />,
           <BannerImage
             key="banner"
