@@ -9,8 +9,10 @@ export const getTotal = ({ did, shop, data }) => (
   shop
     .filter(filterItems(data))
     .filter(({ drop }) => drop === did)
-    .reduce((sum, { id, limit, cost }) => (
-      sum + ((limit - (data[id] || 0)) * cost)
+    .reduce((sum, {
+      id, drop, limit, cost,
+    }) => (
+      sum + ((limit - (data[`${drop}/${id}`] || 0)) * cost)
     ), 0) - meval(data[`${did}/owned`], 0)
 );
 

@@ -63,7 +63,7 @@ const EventShop = ({
               <Card.Description>
                 <ImageLabel
                   id={id}
-                  text={`${limit - (data[id] || 0)} / ${limit}`}
+                  text={`${limit - (data[`${drop}/${id}`] || 0)} / ${limit}`}
                 />
                 <ImageLabel
                   id={drop}
@@ -75,15 +75,15 @@ const EventShop = ({
               extra
               style={{ paddingBottom: 32 }}
             >
-              <p><FormattedMessage id="Event.traded" /><span>{`: ${data[id] || 0}`}</span></p>
+              <p><FormattedMessage id="Event.traded" /><span>{`: ${data[`${drop}/${id}`] || 0}`}</span></p>
               <Slider
-                value={data[id] || 0}
+                value={data[`${drop}/${id}`] || 0}
                 min={0}
                 max={limit}
                 marks={{ [limit]: limit }}
                 handleStyle={{ borderColor: 'grey' }}
                 trackStyle={{ backgroundColor: 'grey' }}
-                onChange={onQuantityUpdate(id)}
+                onChange={onQuantityUpdate(`${drop}/${id}`)}
               />
             </Card.Content>
           </Card>

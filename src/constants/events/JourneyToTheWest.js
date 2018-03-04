@@ -117,8 +117,10 @@ export default {
 
     const totalLotus = shop
       .filter(({ drop }) => drop === lotus)
-      .reduce((sum, { id, limit, cost }) => (
-        sum + ((limit - (data[id] || 0)) * cost)
+      .reduce((sum, {
+        id, drop, limit, cost,
+      }) => (
+        sum + ((limit - (data[`${drop}/${id}`] || 0)) * cost)
       ), 0) - meval(data[`${lotus}/owned`], 0);
     const bonusLotus = meval(data[`${lotus}/bonus`], 0);
     const qstNakara = quests.find(({ id }) => id === nakara);
