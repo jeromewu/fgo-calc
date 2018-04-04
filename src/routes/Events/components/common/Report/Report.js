@@ -21,7 +21,6 @@ const StatisticGroup = styled.div`
   justify-content: center;
 `;
 
-const MAX_AP = 135;
 const MAX_BP = 8;
 
 export default class Report extends PureComponent {
@@ -29,12 +28,14 @@ export default class Report extends PureComponent {
     interval: PropTypes.number,
     end: PropTypes.number,
     required: PropTypes.object,
+    maxAP: PropTypes.number,
   }
 
   static defaultProps = {
     interval: 3000,
     end: Date.now(),
     required: {},
+    maxAP: 135,
   }
 
   state = {
@@ -57,6 +58,7 @@ export default class Report extends PureComponent {
   render() {
     const {
       end,
+      maxAP,
       required: {
         drops, quests, ap, bp,
       },
@@ -64,7 +66,7 @@ export default class Report extends PureComponent {
     const { now } = this.state;
 
     const apCountdown = Math.floor((end - now) / (1000 * 60 * 5));
-    const nApple = Math.ceil((ap - apCountdown) / MAX_AP);
+    const nApple = Math.ceil((ap - apCountdown) / maxAP);
 
     const bpCountdown = Math.floor((end - now) / (1000 * 60 * 60));
     const nSQ = Math.ceil((bp - bpCountdown) / MAX_BP);
@@ -127,7 +129,10 @@ export default class Report extends PureComponent {
         }
       </Card.Group>,
       <h3 key="ap-title">
-        <FormattedMessage id="Event.ap.cost" />
+        <FormattedMessage
+          id="Event.ap.cost"
+          values={{ maxAP }}
+        />
       </h3>,
       <div key="ap">
         <Statistic size="tiny">
