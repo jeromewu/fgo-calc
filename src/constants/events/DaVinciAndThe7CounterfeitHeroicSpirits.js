@@ -1,3 +1,4 @@
+import check from 'check-types';
 import {
   genShopItem,
   getTotal,
@@ -5,6 +6,7 @@ import {
   getRepeat,
   getAP,
 } from 'utils/calc';
+import meval from 'utils/meval';
 
 export default {
   name: 'DaVinciAndThe7CounterfeitHeroicSpirits',
@@ -126,6 +128,202 @@ export default {
         id: 'AP',
         num: 40,
       },
+    },
+  ],
+  bonusQuests: [
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.I',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 10, prob: 3 },
+            { num: 20, prob: 1 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 10, prob: 3 },
+            { num: 20, prob: 1 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.II',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 10, prob: 3 },
+            { num: 20, prob: 2 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 10, prob: 3 },
+            { num: 20, prob: 2 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.III',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 10, prob: 2 },
+            { num: 20, prob: 2 },
+            { num: 60, prob: 1 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 10, prob: 2 },
+            { num: 20, prob: 2 },
+            { num: 60, prob: 1 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.IV',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 10, prob: 1 },
+            { num: 20, prob: 4 },
+            { num: 60, prob: 1 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 10, prob: 1 },
+            { num: 20, prob: 4 },
+            { num: 60, prob: 1 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.V',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 10, prob: 2 },
+            { num: 20, prob: 2 },
+            { num: 60, prob: 2 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 10, prob: 2 },
+            { num: 20, prob: 2 },
+            { num: 60, prob: 2 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.VI',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 20, prob: 4 },
+            { num: 60, prob: 2 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 20, prob: 4 },
+            { num: 60, prob: 2 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.VII',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 20, prob: 3 },
+            { num: 60, prob: 3 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 20, prob: 3 },
+            { num: 60, prob: 3 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.VIII',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 20, prob: 2 },
+            { num: 60, prob: 4 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 20, prob: 2 },
+            { num: 60, prob: 4 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.IX',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 20, prob: 1 },
+            { num: 60, prob: 5 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 20, prob: 1 },
+            { num: 60, prob: 5 },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'Qst.Secret.Manuscript.Storehouse.X',
+      drops: [
+        {
+          id: 'Drop.real.manuscript',
+          stats: [
+            { num: 60, prob: 6 },
+          ],
+        },
+        {
+          id: 'Drop.fake.manuscript',
+          stats: [
+            { num: 60, prob: 6 },
+          ],
+        },
+      ],
     },
   ],
   shop: [
@@ -358,7 +556,7 @@ export default {
       10,
     ),
   ],
-  getRequired: ({ shop, quests }, data) => {
+  getRequired: ({ shop, quests, bonusQuests }, data) => {
     const ids = [
       'Drop.real.manuscript',
       'Drop.fake.manuscript',
@@ -367,9 +565,25 @@ export default {
       'Drop.vitruvian.man.fake',
     ];
 
+    const bQuests = bonusQuests.map(({ id, drops }) => ({
+      id,
+      drops: drops.map(({ id: did, stats }) => ({
+        id: did,
+        num: stats.reduce((sum, { num, prob }) => (
+          Math.floor(sum + ((num + meval(data[`${did}/bonus`], 0)) * prob))
+        ), 0),
+      })),
+    }));
+
     const drops = ids.map(id => ({
       id,
-      total: getTotal({ did: id, shop, data }),
+      total:
+        getTotal({ did: id, shop, data }) -
+        bQuests
+          .filter(({ id: qid }) => data[`${qid}/complete`] !== true)
+          .filter(({ id: qid, drops: ds }) => (
+            data[`${qid}/value`] === id) || (check.undefined(data[`${qid}/value`]) && ds[0].id === id))
+          .reduce((sum, { drops: ds }) => (sum + ds.find(({ id: did }) => did === id).num), 0),
     }));
 
     const rQuests = quests.map(({ id, drops: ds }) => {
@@ -392,6 +606,7 @@ export default {
     return {
       drops,
       quests: rQuests,
+      bonusQuests: bQuests,
       ap,
     };
   },

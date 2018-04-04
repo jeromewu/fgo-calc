@@ -5,7 +5,6 @@ const SET_CONFIG = 'SET_CONFIG';
 export const setConfig = createAction(SET_CONFIG);
 
 export const initialState = {
-  locale: 'en',
   maxAP: 135,
 };
 

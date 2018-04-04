@@ -8,6 +8,7 @@ import Root from '../common/Root';
 import EventShop from '../../containers/EventShop';
 import DropGrid from '../../containers/DropGrid';
 import ConfigPanel from '../../containers/ConfigPanel';
+import QuestGrid from '../../containers/QuestGrid';
 import NavButton from '../common/NavButton';
 import NoticeMessage from '../common/NoticeMessage';
 import Report from '../../containers/Report';
@@ -20,19 +21,21 @@ const DaVinciAndThe7CounterfeitHeroicSpirits = ({
   const {
     start, end, drops, shop, getRequired, message,
   } = event;
+  const required = getRequired(event, data);
   return (
     <Root>
       <section id="report" />
       <BannerImage key="banner" src={banner[server].DaVinciAndThe7CounterfeitHeroicSpirits} alt="DaVinciAndThe7CounterfeitHeroicSpirits" />
       <Countdown start={start} end={end} />
       <Report
-        required={getRequired(event, data)}
+        required={required}
         end={end}
       />
-      <section id="options" />
       <Divider horizontal section>◇◇◇</Divider>
+      <section id="options" />
       <ConfigPanel />
       <DropGrid drops={drops} />
+      <QuestGrid quests={required.bonusQuests} />
       <NoticeMessage message={message} />
       <EventShop items={shop} />
       <NavButton />
