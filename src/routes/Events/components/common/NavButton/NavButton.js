@@ -16,7 +16,7 @@ const NavButton = props => ([
       style={{
         position: 'absolute',
         bottom: (24 + 36 + 8),
-        right: 24,
+        right: 12,
       }}
       {...props}
     />
@@ -34,7 +34,7 @@ const NavButton = props => ([
       style={{
         position: 'absolute',
         bottom: 24,
-        right: 24,
+        right: 12,
       }}
       {...props}
     />
