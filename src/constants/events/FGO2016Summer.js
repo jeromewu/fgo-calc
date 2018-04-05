@@ -96,28 +96,12 @@ export default {
   ],
   quests: [
     {
-      id: 'Qst.private.beach.storm',
+      id: 'Qst.romantic.cave.storm',
       drops: [
         {
-          id: DROPS[4],
+          id: DROPS[0],
           stats: [
-            { num: 3, prob: 9.6 },
-            { num: 4, prob: 2 },
-          ],
-        },
-      ],
-      cost: {
-        id: 'AP',
-        num: 40,
-      },
-    },
-    {
-      id: 'Qst.jungle.adventure.storm',
-      drops: [
-        {
-          id: DROPS[2],
-          stats: [
-            { num: 4, prob: 10 },
+            { num: 4, prob: 11 },
           ],
         },
       ],
@@ -142,12 +126,12 @@ export default {
       },
     },
     {
-      id: 'Qst.romantic.cave.storm',
+      id: 'Qst.jungle.adventure.storm',
       drops: [
         {
-          id: DROPS[0],
+          id: DROPS[2],
           stats: [
-            { num: 4, prob: 11 },
+            { num: 4, prob: 10 },
           ],
         },
       ],
@@ -163,6 +147,97 @@ export default {
           id: DROPS[3],
           stats: [
             { num: 4, prob: 11.3 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.private.beach.storm',
+      drops: [
+        {
+          id: DROPS[4],
+          stats: [
+            { num: 3, prob: 9.6 },
+            { num: 4, prob: 2 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.old.cave.destruction',
+      drops: [
+        {
+          id: DROPS[5],
+          stats: [
+            { num: 4, prob: 10.8 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.underworld.destruction',
+      drops: [
+        {
+          id: DROPS[6],
+          stats: [
+            { num: 4, prob: 11 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.silent.field.destruction',
+      drops: [
+        {
+          id: DROPS[7],
+          stats: [
+            { num: 4, prob: 11 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.reborn.city.destruction',
+      drops: [
+        {
+          id: DROPS[8],
+          stats: [
+            { num: 4, prob: 11 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 40,
+      },
+    },
+    {
+      id: 'Qst.dead.coast.destruction',
+      drops: [
+        {
+          id: DROPS[9],
+          stats: [
+            { num: 4, prob: 11 },
           ],
         },
       ],
