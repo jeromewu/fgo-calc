@@ -10,6 +10,7 @@
     "moment-timezone": "^0.5.14",
     "prop-types": "^15.6.0",
     "rc-slider": "^8.6.0",
+    "rc-tooltip": "^3.7.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-intl": "^2.4.0",

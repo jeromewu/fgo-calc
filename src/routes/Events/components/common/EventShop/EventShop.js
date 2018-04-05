@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import { Card, Checkbox } from 'semantic-ui-react';
-import Slider from 'rc-slider';
+import Slider from 'components/Slider';
 import shortid from 'shortid';
 import filterItems from 'utils/filterItems';
-import 'rc-slider/assets/index.css';
 import ImageLabel from '../ImageLabel';
 
 const FilterContainer = styled.div`
