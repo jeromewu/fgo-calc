@@ -14,6 +14,7 @@ const langs = [
 
 const WhiteDropdown = styled(Dropdown)`
   color: white;
+  margin-right: 8px;
 `;
 
 const LangDropdown = ({ onItemClick }) => (
