@@ -492,7 +492,7 @@ export default {
       'Asc.chains.of.the.fool',
       DROPS[7],
       30,
-      40,
+      30,
     ),
     genShopItem(
       'Asc.rider.monument',
