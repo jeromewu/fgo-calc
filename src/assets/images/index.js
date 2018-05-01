@@ -19,6 +19,7 @@ import ghostlantern from './asc/ghost.lantern.png';
 import heartofaforeigngod from './asc/heart.of.a.foreign.god.png';
 import herosproof from './asc/heros.proof.png';
 import homunculusbaby from './asc/homunculus.baby.png';
+import infinitygear from './asc/infinity.gear.png';
 import lampofdemonsealing from './asc/lamp.of.demon.sealing.png';
 import lancermonument from './asc/lancer.monument.png';
 import lancerpiece from './asc/lancer.piece.png';
@@ -124,6 +125,7 @@ export default {
   'Asc.heart.of.a.foreign.god': heartofaforeigngod,
   'Asc.heros.proof': herosproof,
   'Asc.homunculus.baby': homunculusbaby,
+  'Asc.infinity.gear': infinitygear,
   'Asc.lamp.of.demon.sealing': lampofdemonsealing,
   'Asc.lancer.monument': lancermonument,
   'Asc.lancer.piece': lancerpiece,
