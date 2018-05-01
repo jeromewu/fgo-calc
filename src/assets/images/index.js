@@ -70,8 +70,11 @@ import eadromalloy from './drop/eadrom.alloy.png';
 import fakemanuscript from './drop/fake.manuscript.png';
 import foodingredients from './drop/food.ingredients.png';
 import freshwater from './drop/fresh.water.png';
+import highclasspudding from './drop/high.class.pudding.png';
 import ironmaterials from './drop/iron.materials.png';
+import magicalbushidomusashi from './drop/magical.bushido.musashi.png';
 import monalisafake from './drop/mona.lisa.fake.png';
+import nolionkun from './drop/no.lion.kun.png';
 import oil from './drop/oil.png';
 import orbofdeebs from './drop/orb.of.deebs.png';
 import realmanuscript from './drop/real.manuscript.png';
@@ -86,6 +89,8 @@ import chaldealifesavers from './ce/chaldea.lifesavers.png';
 import divineprincessofthestorm from './ce/divine.princess.of.the.storm.png';
 import fourstarexpcard from './ce/four.star.exp.card.png';
 import goldensumowrestling from './ce/golden.sumo.wrestling.png';
+import kaleidruby from './ce/kaleid.ruby.png';
+import kaleidsapphire from './ce/kaleid.sapphire.png';
 import schoolofchaldea from './ce/school.of.chaldea.png';
 import summertimemistress from './ce/summer.time.mistress.png';
 import threestarexpcard from './ce/three.star.exp.card.png';
@@ -170,8 +175,11 @@ export default {
   'Drop.fake.manuscript': fakemanuscript,
   'Drop.food.ingredients': foodingredients,
   'Drop.fresh.water': freshwater,
+  'Drop.high.class.pudding': highclasspudding,
   'Drop.iron.materials': ironmaterials,
+  'Drop.magical.bushido.musashi': magicalbushidomusashi,
   'Drop.mona.lisa.fake': monalisafake,
+  'Drop.no.lion.kun': nolionkun,
   'Drop.oil': oil,
   'Drop.orb.of.deebs': orbofdeebs,
   'Drop.real.manuscript': realmanuscript,
@@ -186,6 +194,8 @@ export default {
   'Ce.divine.princess.of.the.storm': divineprincessofthestorm,
   'Ce.four.star.exp.card': fourstarexpcard,
   'Ce.golden.sumo.wrestling': goldensumowrestling,
+  'Ce.kaleid.ruby': kaleidruby,
+  'Ce.kaleid.sapphire': kaleidsapphire,
   'Ce.school.of.chaldea': schoolofchaldea,
   'Ce.summer.time.mistress': summertimemistress,
   'Ce.three.star.exp.card': threestarexpcard,
