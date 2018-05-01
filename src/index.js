@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 import locales from 'assets/locales';
 import { loadState } from 'utils/persistState';
 import createStore from './store';
-import registerServiceWorker from './utils/registerServiceWorker';
+import { unregister } from './utils/registerServiceWorker';
 import setup from './setup';
 import './styles/index.css';
 
@@ -32,4 +32,4 @@ if (process.env.NODE_ENV === 'development') {
 
 render();
 
-registerServiceWorker();
+unregister();
