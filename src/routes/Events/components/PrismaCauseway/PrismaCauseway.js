@@ -10,7 +10,7 @@ import DropGrid from '../../containers/DropGrid';
 import ConfigPanel from '../../containers/ConfigPanel';
 import NavButton from '../common/NavButton';
 import NoticeMessage from '../common/NoticeMessage';
-import Report from '../../containers/Report';
+import MultiReport from '../../containers/MultiReport';
 
 const PrismaCauseway = ({
   server,
@@ -25,7 +25,7 @@ const PrismaCauseway = ({
       <section id="report" />
       <BannerImage key="banner" src={banner[server].PrismaCauseway} alt="PrismaCauseway" />
       <Countdown start={start} end={end} bp={bp} />
-      <Report
+      <MultiReport
         required={getRequired(event, data)}
         end={end}
       />

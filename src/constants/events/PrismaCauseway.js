@@ -5,6 +5,7 @@ import {
   getRepeat,
   getAP,
 } from 'utils/calc';
+import meval from 'utils/meval';
 
 const DROPS = [
   'Drop.no.lion.kun',
@@ -40,45 +41,74 @@ export default {
   ],
   quests: [
     {
-      id: 'Qst.kingdom.of.starfield.and.crystals.rank.b.plus',
-      drops: [
-        {
-          id: DROPS[2],
-          stats: [
-            { num: 2, prob: 8.8 },
-            { num: 3, prob: 4 },
-          ],
-        },
-      ],
-      cost: {
-        id: 'AP',
-        num: 30,
-      },
-    },
-    {
-      id: 'Qst.kingdom.of.starfield.and.crystals.rank.a',
-      drops: [
-        {
-          id: DROPS[1],
-          stats: [
-            { num: 2, prob: 9.6 },
-            { num: 3, prob: 4 },
-          ],
-        },
-      ],
-      cost: {
-        id: 'AP',
-        num: 30,
-      },
-    },
-    {
-      id: 'Qst.kingdom.of.starfield.and.crystals.rank.a.plus',
+      id: 'Qst.kingdom.of.dead.bookcases.rank.ex',
       drops: [
         {
           id: DROPS[0],
           stats: [
-            { num: 2, prob: 10 },
-            { num: 3, prob: 4 },
+            { num: 2, prob: 6 },
+            { num: 3, prob: 9 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 30,
+      },
+    },
+    {
+      id: 'Qst.kingdom.of.snow.flowers.and.honey.rank.ex',
+      drops: [
+        {
+          id: DROPS[1],
+          stats: [
+            { num: 2, prob: 6 },
+            { num: 3, prob: 10 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 30,
+      },
+    },
+    {
+      id: 'Qst.kingdom.of.candies.rank.ex',
+      drops: [
+        {
+          id: DROPS[2],
+          stats: [
+            { num: 2, prob: 7.2 },
+            { num: 3, prob: 9 },
+          ],
+        },
+      ],
+      cost: {
+        id: 'AP',
+        num: 30,
+      },
+    },
+    {
+      id: 'Qst.kingdom.of.starfield.and.crystals.rank.ex',
+      drops: [
+        {
+          id: DROPS[0],
+          stats: [
+            { num: 2, prob: 2.1 },
+            { num: 4, prob: 5 },
+          ],
+        },
+        {
+          id: DROPS[1],
+          stats: [
+            { num: 2, prob: 7.8 },
+          ],
+        },
+        {
+          id: DROPS[2],
+          stats: [
+            { num: 2, prob: 2.1 },
+            { num: 4, prob: 5 },
           ],
         },
       ],
@@ -222,10 +252,10 @@ export default {
       total: getTotal({ did: id, shop, data }),
     }));
 
-    const rQuests = quests.map(({ id, drops: ds, cost }) => {
+    const rQuests = quests.slice(0, 3).map(({ id, drops: ds, cost }) => {
       const did = ds[0].id;
       const { total } = drops.find(({ id: i }) => i === did);
-      const drop = getTypeAddDrop({ did, quests, data });
+      const drop = getTypeAddDrop({ did, quests: quests.slice(0, 3), data });
       return {
         id,
         drops: [
@@ -236,6 +266,32 @@ export default {
       };
     });
 
+    let mixAp = 0;
+
+    const mixQuests = [(() => {
+      const { id, drops: ds, cost } = quests[3];
+      const mixDrops = ds.map(({ id: did, stats }) => ({
+        id: did,
+        num: stats.reduce((sum, { num, prob }) => (
+          Math.floor(sum + ((num + meval(data[`${did}/bonus`], 0)) * prob))
+        ), 0),
+      }));
+
+      const repeat = mixDrops.reduce((max, { num }, index) => {
+        const rp = Math.ceil(drops[index].total / num);
+        return max > rp ? max : rp;
+      }, 0);
+
+      mixAp = repeat * cost.num;
+
+      return {
+        id,
+        drops: mixDrops,
+        repeat,
+        cost,
+      };
+    })()];
+
     const ap = rQuests
       .filter(({ cost }) => cost.id === 'AP')
       .reduce((sum, { id, repeat }) => (
@@ -244,8 +300,16 @@ export default {
 
     return {
       drops,
-      quests: rQuests,
-      ap,
+      sols: [
+        {
+          quests: mixQuests,
+          ap: mixAp,
+        },
+        {
+          quests: rQuests,
+          ap,
+        },
+      ],
     };
   },
 };
